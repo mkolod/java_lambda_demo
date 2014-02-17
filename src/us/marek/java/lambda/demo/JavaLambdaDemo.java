@@ -26,10 +26,13 @@ public class JavaLambdaDemo {
         final JavaOption<Integer> jo1 = new JavaOption<>(5);
         final JavaOption<Integer> i1 = jo1.map(i -> i * 2);
         final JavaOption<Iterable<Integer>> i2 = jo1.flatMap(i -> new Range(0, i));
+        final JavaOption<Integer> jo2 = JavaNone.getInstance();
+        final Integer i3 = jo2.getOrElse(42);
 
         print("jo1", jo1.get());
-        print("i2", i1.get());
-        print("i3", i2.get());
+        print("i1", i1.get());
+        print("i2", i2.get());
+        print("i3", i3);
     }
 
     private static void print(final String name, final Object obj) {
